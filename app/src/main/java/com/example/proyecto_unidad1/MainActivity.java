@@ -1,6 +1,7 @@
 package com.example.proyecto_unidad1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
@@ -34,37 +36,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Log.d("Ver","entre en el onclick");
+
+        Bundle b=new Bundle();
+        b=getIntent().getExtras();
+        int id=b.getInt("id");
+
         request = SingleRequest.getInstance(this.getApplicationContext());
         datos=request.getMyrequest();
 
-        //Log.d("Ver","entre en el onclick");
-
-        String url= "http://192.168.1.105:8000/api/usuario/1";
+        String url= "http://192.168.1.105:8000/api/usuario/"+id;
         List<ConstUsuario> usuarioList = new ArrayList<>();
         vistaR=(TextView) findViewById(R.id.mostrar_datos);
 
+        Log.d("res",url);
 
-        JsonObjectRequest requestjson = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONArray arreglo = response.getJSONArray("usuario");
+                    Log.d("res2",response.toString());
 
-                    for (int i=0;i<arreglo.length();i++){
-                        JSONObject usuario=arreglo.getJSONObject(i);
-                        String nombre = usuario.getString("name");
-                        String correo = usuario.getString("email");
-                        vistaR.append(nombre + " " + correo);
-                        usuarioList.add(new ConstUsuario(nombre + " " + correo));
-                    }
+                    String nombre=response.getString("nombre");
+                    String correo=response.getString("correo");
 
-                    ClaseUsuario adapter = new ClaseUsuario(usuarioList);
-                    recyclerView.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
+                    TextView n=(TextView) findViewById(R.id.nom);
+                    n.setText(nombre);
+                    TextView c=(TextView) findViewById(R.id.email);
+                    c.setText(correo);
 
-                    /*final Type userType=new TypeToken<List<ConstUsuario>>(){}.getType();
-                    List<ConstUsuario> Listausuario = */
-                } catch (JSONException e) {
+                    //Log.d("res",usu);
+
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
             }
         });
-        datos.add(requestjson);
+        datos.add(jsonObjectRequest);
 
     }
 }

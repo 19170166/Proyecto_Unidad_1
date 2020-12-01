@@ -23,7 +23,7 @@ public class ClasePermisos extends RecyclerView.Adapter<ClasePermisos.Viewholder
     @Override
     public ClasePermisos.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View vistaPermiso= LayoutInflater.from(parent.getContext()).inflate(R.layout.recylce_permisos,parent,false);
-        vistaPermiso.setOnClickListener(this);
+        vistaPermiso.findViewById(R.id.sitch).setOnClickListener(this);
         return new Viewholder(vistaPermiso);
     }
 
@@ -50,16 +50,17 @@ public class ClasePermisos extends RecyclerView.Adapter<ClasePermisos.Viewholder
     }
 
     public static  class Viewholder extends RecyclerView.ViewHolder{
-        //private final TextView permiso;
+        private final TextView permiso;
         private final Switch permitir;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            //permiso = itemView.findViewById(R.id.vista_permisos);
+            permiso = itemView.findViewById(R.id.mostrar);
             permitir = itemView.findViewById(R.id.sitch);
         }
 
         public void setData(String contenido){
-            permitir.setText(contenido);
+
+            permiso.setText(contenido);
         }
     }
 }

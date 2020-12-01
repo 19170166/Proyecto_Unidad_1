@@ -2,6 +2,7 @@ package com.example.proyecto_unidad1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,8 +29,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-
-
         findViewById(R.id.B_Registrar).setOnClickListener(this);
 
     }
@@ -42,7 +41,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
 
         Log.d("Ver","entre en el onclick");
 
-        String url= "http://192.168.137.1:8000/api/registro";
+        String url= "http://192.168.1.105:8000/api/registro";
 
         nombreR=(EditText) findViewById(R.id.NombreR);
         correoR=(EditText) findViewById(R.id.CorreoR);
@@ -50,30 +49,31 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         Log.d("datos",nombreR.getText().toString());
         Log.d("datos",correoR.getText().toString());
         Log.d("datos",pdR.getText().toString());
-        JSONObject jsonObject = new JSONObject();
+        JSONObject data = new JSONObject();
 
         try {
-            jsonObject.put("nombre",nombreR.getText());
-            jsonObject.put("correo",correoR.getText());
-            jsonObject.put("password",pdR.getText());
-            Log.d("json",jsonObject.toString());
+            data.put("nombre",nombreR.getText());
+            data.put("correo",correoR.getText());
+            data.put("password",pdR.getText());
+            Log.d("json",data.toString());
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        JsonObjectRequest requestjson = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, data, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(Registro.this,response.toString(),Toast.LENGTH_SHORT);
-                Log.i("Request",response.toString());
+                Log.d("datos",data.toString());
+                Toast.makeText(Registro.this,"Usuario Registrado",Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+
             }
         });
-        datos.add(requestjson);
+        datos.add(jsonObjectRequest);
 
     }
 }

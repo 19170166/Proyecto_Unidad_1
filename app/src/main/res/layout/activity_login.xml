@@ -126,6 +126,7 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:text=" Registrate aquí"
+                    android:backgroundTint="@color/azul"
                     android:textColor="@color/blanco"
                     android:textSize="18dp" />
             </LinearLayout>

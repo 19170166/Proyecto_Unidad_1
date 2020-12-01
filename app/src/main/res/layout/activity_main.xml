@@ -7,18 +7,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/icono"
+        android:src="@drawable/hacking"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/mostrar_datos"/>
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/hacking"/>
+        android:text="Nombre"
+        android:id="@+id/nom"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/icono"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correo"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:id="@+id/email"
+        android:layout_below="@+id/nom"/>
 
 </RelativeLayout>

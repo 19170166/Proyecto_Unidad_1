@@ -47,7 +47,17 @@ public class Permisos extends AppCompatActivity {
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Permisos.this,"accion del onclick: ",Toast.LENGTH_SHORT).show();
+
+                try{
+
+                    ConstPermisos p = permisosList.get(recyclerView.getChildAdapterPosition(v));//obtiene posicion del objeto en el recycle
+                    Log.d("posicion",p.getSitch().getText().toString());
+                    Toast.makeText(getApplicationContext(),p.getPermiso(),Toast.LENGTH_SHORT).show();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
         });
 

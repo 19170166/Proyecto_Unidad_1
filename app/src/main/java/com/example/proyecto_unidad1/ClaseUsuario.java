@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ClaseUsuario extends RecyclerView.Adapter<ClaseUsuario.Viewholder> {
 
-    private List<ConstUsuario> usuarioList;
+    private final List<ConstUsuario> usuarioList;
     public ClaseUsuario(List<ConstUsuario> usuarioList){this.usuarioList=usuarioList;}
 
     @NonNull
