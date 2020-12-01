@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul"
+    tools:context=".Login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:padding="40dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Here´s"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="your first"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="step with"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Us!"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="right|top"
+                    android:src="@drawable/hacking" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/blanco"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="190dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="top|center"
+                    android:text="Log In"
+                    android:textSize="55dp"/>
+                <EditText
+                    android:id="@+id/Correo"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:hint="Correo" />
+
+                <EditText
+                    android:id="@+id/Contraseña"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword" />
+                <Button
+                    android:id="@+id/Sesion"
+                    android:textColor="@color/blanco"
+                    android:backgroundTint="@color/azul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="90dp"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+                    android:layout_gravity="center"
+                    android:text="Iniciar Sesion" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blanco"
+                    android:textSize="18dp"
+                    android:text="Aún no te has registrado? "/>
+                <TextView
+                    android:id="@+id/registro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text=" Registrate aquí"
+                    android:textColor="@color/blanco"
+                    android:textSize="18dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
