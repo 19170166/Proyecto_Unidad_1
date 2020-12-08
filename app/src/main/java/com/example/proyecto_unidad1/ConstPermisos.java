@@ -12,6 +12,9 @@ public class ConstPermisos {
     public Switch getSitch() {
         return sitch;
     }
+    public int getIntSwitch(){
+        return sitch.getId();
+    }
 
     public void setSitch(Switch sitch) {
         this.sitch = sitch;
